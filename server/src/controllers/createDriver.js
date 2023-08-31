@@ -19,8 +19,8 @@ const createDriver = async (req, res) => {
       nacionalidad,
       fechaNacimiento,
     });
-    if (teams && teams.length > 0) {
-      const foundTeams = await Promise.all(
+    if (teams) {
+      const foundTeams = await findAll(
         teams.map(async (teamName) => {
           const foundTeam = await Teams.findOne({
             where: { name: teamName },

@@ -1,17 +1,17 @@
-const axios = require('axios');
 const { Teams } = require('../db');
+const apiTeams = require('../../api/db.json');
+// console.log('datos', apiTeams);
 
 const getTeams = async (req, res) => {
   try {
     const teams = await Teams.findAll();
 
     if (teams.length === 0) {
-      // Realiza la solicitud a la API y guárdalos en la base de datos
-      const response = await axios.get(`http://localhost:5000/drivers`);
-      const apiTeams = response.data;
-
-      // Inserta los equipos en la base de datos
-      await Teams.bulkCreate(apiTeams);
+      const teamsFromApi = apiTeams.drivers.map((drivers) => ({
+        teams: `${drivers.teams} `,
+      }));
+      console.log('teams de api', teamsFromApi);
+      await Teams.bulkCreate(teamsFromApi);
 
       // Vuelve a obtener los equipos de la base de datos
       const updatedTeams = await Teams.findAll();
