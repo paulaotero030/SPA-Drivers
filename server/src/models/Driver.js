@@ -4,9 +4,10 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   sequelize.define('Driver', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
+
       primaryKey: true,
-      autoIncrement: true,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
     },
     nombre: {

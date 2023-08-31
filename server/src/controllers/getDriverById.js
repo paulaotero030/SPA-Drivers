@@ -36,20 +36,18 @@ const axios = require('axios');
 const { Driver, Team } = require('../db');
 
 const getDriverById = async (req, res) => {
-  const { idDriver } = req.params;
-  console.log('aca id', idDriver);
+  const { id } = req.params;
+  // console.log('aca id', idDriver);
   try {
     // Consultar la base de datos para obtener el detalle del driver por su ID
-    const driver = await Driver.findByPk(idDriver, {
+    const driver = await Driver.findByPk(id, {
       include: [{ model: Team, attributes: ['name'] }],
     });
 
     if (!driver) {
       // Si no se encuentra en la base de datos, hacer una solicitud a la API externa
       try {
-        const response = await axios.get(
-          `http://localhost:5000/drivers/${idDriver}`
-        );
+        const response = await axios.get(`http://localhost:5000/drivers/${id}`);
 
         if (!response.data || Object.keys(response.data).length === 0) {
           return res

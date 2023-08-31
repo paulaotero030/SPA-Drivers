@@ -10,9 +10,10 @@ module.exports = (sequelize) => {
       defaultValue: DataTypes.UUIDV4,
       allowNull: false,
     },
-    name: {
+    nombre: {
       type: DataTypes.STRING,
       allowNull: false,
+      field: 'name.forename', // Usar el campo correspondiente en los datos de la API
     },
   });
 };
