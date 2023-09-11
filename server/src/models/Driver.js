@@ -10,32 +10,32 @@ module.exports = (sequelize) => {
       defaultValue: DataTypes.UUIDV4,
       allowNull: false,
     },
-    nombre: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
       field: 'name.forename', // Usar el campo correspondiente en los datos de la API
     },
-    apellido: {
+    surname: {
       type: DataTypes.STRING,
       allowNull: false,
       field: 'name.surname', // Usar el campo correspondiente en los datos de la API
     },
-    descripcion: {
+    description: {
       type: DataTypes.TEXT,
       allowNull: false,
       field: 'description', // Usar el campo correspondiente en los datos de la API
     },
-    imagen: {
+    image: {
       type: DataTypes.STRING,
       allowNull: false,
       field: 'image.url', // Usar el campo correspondiente en los datos de la API
     },
-    nacionalidad: {
+    nationality: {
       type: DataTypes.STRING,
       allowNull: false,
       field: 'nationality', // Usar el campo correspondiente en los datos de la API
     },
-    fechaNacimiento: {
+    dob: {
       type: DataTypes.DATEONLY,
       allowNull: false,
       field: 'dob', // Usar el campo correspondiente en los datos de la API

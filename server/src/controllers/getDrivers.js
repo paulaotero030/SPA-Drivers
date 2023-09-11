@@ -1,16 +1,32 @@
 const api = require('../../api/db.json');
 const { Driver } = require('../db');
+const Sequelize = require('sequelize');
 
 const getDrivers = async (req, res) => {
-  try {
-    const db = await Driver.findAll();
-    const driversData = [db, api];
+  const name = req.query.name;
+  console.log('nombre', name);
 
-    // Enviar la respuesta con los datos de los drivers
-    return res.status(200).json(driversData);
+  try {
+    if (!name) {
+      const dbDriver = await Driver.findAll();
+      const allDrivers = [dbDriver, api];
+      return res.status(200).json(allDrivers);
+    }
+
+    const dbDriver = await Driver.findAll({
+      where: {
+        name: name,
+        //para que busque indep min o may y para que me traiga 15 nomas
+      },
+    });
+    const apiDrivers = await api.drivers.filter(
+      (driver) => driver.name.forename === name //para que busque indep min o may y para que me traiga 15 nomas
+    );
+    const allDrivers = [dbDriver, apiDrivers];
+    return res.status(200).json(allDrivers);
   } catch (error) {
-    // En caso de error, enviar una respuesta de error con el código 500 (Error interno del servidor)
-    return res.status(500).json({ error: 'Error al obtener los drivers' });
+    console.error('Error:', error);
+    return res.status(500).json({ error: 'Error al obtener los conductores.' });
   }
 };
 

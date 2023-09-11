@@ -1,23 +1,16 @@
 const { Driver, Teams } = require('../db');
 
 const createDriver = async (req, res) => {
-  const {
-    nombre,
-    apellido,
-    descripcion,
-    imagen,
-    nacionalidad,
-    fechaNacimiento,
-    teams,
-  } = req.body;
+  const { name, surname, description, image, nationality, dob, teams } =
+    req.body;
   try {
     const newDriver = await Driver.create({
-      nombre,
-      apellido,
-      descripcion,
-      imagen,
-      nacionalidad,
-      fechaNacimiento,
+      name,
+      surname,
+      description,
+      image,
+      nationality,
+      dob,
     });
     if (teams) {
       const foundTeams = await findAll(
