@@ -1,0 +1,10 @@
+.contenedorHome {
+  background-image: url('https://wallpaperset.com/w/full/f/c/9/242725.jpg'); /* Ruta a tu imagen de fondo */
+  background-size: cover;
+  background-position: center; /* Centra la imagen de fondo */
+  width: 100%;
+  position: absolute;
+  top: 0%;
+  margin-left: -50%;
+  height: 140vh;
+}

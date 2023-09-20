@@ -1,0 +1,5 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Para que las tarjetas se envuelvan en filas si no caben en el ancho de la pantalla */
+  justify-content: center; /* Centra horizontalmente las tarjetas */
+}

@@ -4,8 +4,12 @@ import {
   GET_DRIVERS,
   ORDER_ALPHA,
   ORDER_DOB,
-  FILTER_BY_TEAMS,
+  // FILTER_BY_TEAMS,
   GET_TEAMS,
+  // CREATE_DRIVER,
+  FILTER_BY_TEAM,
+  FILTER_BY_ORIGIN,
+  POST_DRIVERS,
 } from '../actions/actionsTypes';
 
 const initialState = {
@@ -67,24 +71,66 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         drivers: dob,
       };
-    case FILTER_BY_TEAMS:
+    // case FILTER_BY_TEAMS:
+    //   const allDrivers2 = state.allDrivers;
+    //   const TeamsFilter =
+    //     action.payload === 'All'
+    //       ? allDrivers2
+    //       : allDrivers2.filter(
+    //           (drivers) =>
+    //             drivers.teams &&
+    //             drivers.teams
+    //               .map((element) => element.season)
+    //               .includes(action.payload)
+    //         );
+    //   return {
+    //     ...state,
+    //     drivers: TeamsFilter,
+    //   };
+
+    case FILTER_BY_TEAM:
       const allDrivers2 = state.allDrivers;
-      const TeamsFilter =
+      const filteredByTeam =
         action.payload === 'All'
           ? allDrivers2
           : allDrivers2.filter(
               (drivers) =>
                 drivers.teams &&
-                drivers.teams.map((element) => element.season).includes(payload)
+                drivers.teams
+                  .map((element) => element.teams)
+                  .includes(action.payload)
             );
       return {
         ...state,
-        drivers: TeamsFilter,
+        drivers: filteredByTeam,
+      };
+
+    case FILTER_BY_ORIGIN:
+      const selectedOrigin = action.payload;
+      const filteredByOrigin =
+        selectedOrigin === 'All'
+          ? state.allDrivers
+          : state.allDrivers.filter(
+              (driver) => driver.origin === selectedOrigin
+            );
+
+      return {
+        ...state,
+        drivers: filteredByOrigin,
       };
     case GET_TEAMS:
       return {
         ...state,
         teams: action.payload,
+      };
+    // case CREATE_DRIVER:
+    //   return {
+    //     ...state,
+    //     allDrivers: action.payload,
+    //   };
+    case POST_DRIVERS:
+      return {
+        ...state,
       };
     default:
       return state;

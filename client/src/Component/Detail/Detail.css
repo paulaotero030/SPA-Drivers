@@ -1,0 +1,63 @@
+/* Agregar una imagen de fondo */
+.player-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5%;
+  padding: 20px;
+  background: url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')
+    no-repeat center center fixed;
+  background-size: cover;
+  min-height: 120vh; /* Ajusta la altura según sea necesario */
+}
+
+.player-content {
+  display: flex;
+  align-items: center;
+}
+
+.player-image {
+  max-width: 800px;
+  border-radius: 3%;
+  height: 600px;
+  margin-right: 60px;
+  box-shadow: 0 0 90px rgba(0, 0, 0, 0.3); /* Agrega un sombreado */
+}
+
+.player-info {
+  text-align: left;
+  font-size: 14px;
+  border-color: black;
+  -webkit-text-stroke: 0.3px #000000;
+  color: #fff;
+}
+
+/* Agregar color al borde (contorno) de las letras */
+.player-name {
+  font-size: 60px;
+  font-weight: bold;
+  -webkit-text-stroke: 1.5px #000000;
+  color: #fff;
+}
+.player-teams {
+  font-size: 25px;
+  font-weight: bold;
+  -webkit-text-stroke: 1.5px #000000;
+  color: #fff;
+}
+.player-description {
+  font-size: 18px;
+  margin-top: 10px;
+  -webkit-text-stroke: 0.3px #000000;
+  color: #fff;
+}
+.home-link a {
+  text-align: center; /* Centra horizontalmente el enlace */
+  align-self: flex-start;
+  margin-right: 230px;
+  color: blue;
+  -webkit-text-stroke: 0.3px #ffffff;
+  font-size: 26px;
+  font-weight: 700; /* Ajusta el grosor según tus preferencias */
+}

@@ -1,0 +1,41 @@
+.navbar {
+  background-color: #0f551e; /* Color de fondo de la barra de navegación */
+  color: white; /* Color del texto en la barra de navegación */
+  padding: 10px 0; /* Espaciado interior */
+  text-align: center; /* Centra el contenido horizontalmente */
+  margin-top: 10px; /* Ancla la barra de navegación en la parte superior de la ventana */
+  width: 80%; /* Hace que la barra de navegación ocupe todo el ancho */
+  height: 15%;
+  z-index: 1000;
+  border-radius: 100px;
+  margin-left: 140px;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -10px;
+  padding-top: -40px; /* Agrega un espacio superior de 70px */
+}
+
+.nav-link {
+  text-decoration: none; /* Eliminar subrayado en los enlaces */
+}
+
+.nav-button {
+  background-color: #943219; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  padding: 10px 20px; /* Espaciado interior del botón */
+  border: none; /* Sin borde en el botón */
+  cursor: pointer; /* Cambiar el cursor al pasar el mouse sobre el botón */
+  margin-left: 10px; /* Espaciado entre botones */
+  margin-right: 80px;
+}
+
+.nav-button:hover {
+  background-color: #d25c45; /* Cambia el color de fondo al pasar el mouse sobre el botón */
+}

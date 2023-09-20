@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllDrivers } from '../redux/actions/index';
-import Cards from './Cards';
-import SearchBar from './SearchBar';
-import Paginado from './Paginado';
-import NavBar from './NavBar';
+import { getAllDrivers } from '../../redux/actions/index';
+import Cards from '../Cards/Cards';
+import SearchBar from '../SearchBar';
+import Paginado from '../Paginado/Paginado';
+import NavBar from '../NavBar/NavBar';
+import './HomePage.css';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -40,8 +41,8 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Drivers</h1>
+    <div className='contenedorHome'>
+      {/* <h1>Drivers</h1> */}
       <NavBar setCurrentPage={setCurrentPage} setOrder={setOrder} />
       <Paginado
         driversPage={driversPage}
@@ -56,19 +57,3 @@ const Home = () => {
   );
 };
 export default Home;
-
-// export function getAllDrivers() {
-//   return async (dispatch) => {
-//     try {
-//       const response = await axios.get(`http://localhost:3001/drivers`);
-//       const dataObject = response.data[1]; // Acceder al segundo elemento que contiene el objeto
-//       console.log('response drivers', dataObject);
-//       return dispatch({
-//         type: GET_DRIVERS,
-//         payload: dataObject,
-//       });
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// }

@@ -1,0 +1,46 @@
+/* PlayerDetails.css */
+.card {
+  border: 1px solid #faf9f9;
+  padding: 10px;
+  margin: 10px;
+  width: 120px;
+  height: auto;
+  border-radius: 10px;
+  z-index: 2;
+  display: inline-block;
+  text-align: center;
+  transition: transform 0.2s;
+  background-color: rgb(34, 124, 56);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Courier New', Courier, monospace; /* Cambia la fuente aquí */
+  transition: background-color 0.6s ease, transform 0.3s ease-in-out; /* Agrega una transición de color y de transformación */
+}
+
+.card:hover {
+  transform: perspective(8000px) rotateY(30deg); /* Ajusta los valores según tus preferencias */
+  background-color: #ff9900; /* Cambia el color de fondo en hover */
+}
+
+.card img {
+  max-width: 70%;
+  max-height: 50%;
+  border-radius: 10px;
+}
+
+.card h1 {
+  font-size: 24px;
+  margin: 5px 0;
+  color: black; /* Cambia el color del texto a negro */
+}
+
+.card h2 {
+  font-size: 13px;
+  margin: 5px 0;
+  color: black; /* Cambia el color del texto a negro */
+  z-index: 0;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background-color: #f78467; /* Cambia el color de fondo al pasar el cursor */
+}

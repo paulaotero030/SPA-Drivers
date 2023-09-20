@@ -6,7 +6,10 @@ import {
   ORDER_ALPHA,
   ORDER_DOB,
   GET_TEAMS,
-  FILTER_BY_TEAMS,
+  // FILTER_BY_TEAMS,
+  POST_DRIVERS,
+  FILTER_BY_ORIGIN,
+  FILTER_BY_TEAM,
 } from './actionsTypes';
 import Filter from '../../Component/Filtrado/Filter';
 
@@ -17,6 +20,8 @@ export function getNameDrivers(name) {
       const json = await axios.get(
         ` http://localhost:3001/drivers?name=${name}`
       );
+      const dataObject = json.data[1]; // Acceder al segundo elemento que contiene el objeto
+
       console.log('response drivers name', json.data);
       return dispatch({
         type: SEARCH_DRIVERS,
@@ -82,20 +87,43 @@ export function orderDob(payload) {
 export function getTeams() {
   return async (dispatch) => {
     try {
-      const json = await axios.get('http://localhost:3001/drivers');
+      const json = await axios.get('http://localhost:3001/teams');
+      console.log('Received teams data:', json.data);
       return dispatch({
         type: GET_TEAMS,
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
+      console.log('Error fetching teams:', error);
     }
   };
 }
+
 //FILTRAR POR TEAMS
-export function filterTeams(payload) {
+// export function filterTeams(payload) {
+//   return {
+//     type: FILTER_BY_TEAMS,
+//     payload,
+//   };
+// }
+//CREAR UN NUEVO DRIVER
+export function postDrivers(payload) {
+  return async () => {
+    const json = await axios.post('http://localhost:3001/drivers', payload);
+    return json;
+  };
+}
+
+export function filterDriversByTeam(team) {
   return {
-    type: FILTER_BY_TEAMS,
-    payload,
+    type: FILTER_BY_TEAM,
+    payload: team,
+  };
+}
+
+export function filterDriversByOrigin(origin) {
+  return {
+    type: FILTER_BY_ORIGIN,
+    payload: origin,
   };
 }
