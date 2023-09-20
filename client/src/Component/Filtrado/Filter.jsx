@@ -5,7 +5,7 @@ import {
   getTeams,
   filterDriversByOrigin,
 } from '../../redux/actions/index';
-
+import './Filter.css'
 const Filter = ({ setCurrentPage }) => {
   const dispatch = useDispatch();
   const allTeams = useSelector((state) => state.teams);
@@ -13,7 +13,7 @@ const Filter = ({ setCurrentPage }) => {
   const [filteredTeams, setFilteredTeams] = useState([]); // Nuevo estado para los equipos filtrados
 
   const [selectedTeam, setSelectedTeam] = useState('All');
-  const [selectedOrigin, setSelectedOrigin] = useState('All');
+  const [selectedOrigin, setSelectedOrigin] = useState('Select Origins');
 
   const handleTeamChange = (event) => {
     setSelectedTeam(event.target.value);
@@ -52,34 +52,37 @@ const Filter = ({ setCurrentPage }) => {
   }, [selectedOrigin, allTeams]);
 
   return (
-    <div>
-      <fieldset>
-        <legend>Filter drivers</legend>
-        <select
-          onChange={(event) => handleTeamChange(event)}
-          value={selectedTeam}
-        >
-          <option value='All'>All Teams</option>
-          {filteredTeams?.map((element) => (
-            <option key={element.teams} value={element.teams}>
-              {element.teams}
-            </option>
-          ))}
-        </select>
-        <select
-          onChange={(event) => handleOriginChange(event)}
-          value={selectedOrigin}
-        >
-          <option value='All'>All Origins</option>
-          <option value='API'>API</option>
-          <option value='Database'>Database</option>
-        </select>
-        <button onClick={handleFilterClick}>Apply Filters</button>
-      </fieldset>
+    <div > {/* Aplica la clase al contenedor principal */}
+    <fieldset className="filter-fieldset"> {/* Aplica la clase al fieldset */}
+      <legend className="filter-legend">Filter drivers</legend> {/* Aplica la clase a la leyenda */}
+      <select
+        className="filter-select" // Aplica la clase al select
+        onChange={(event) => handleTeamChange(event)}
+        value={selectedTeam}
+      >
+        <option value='All'>All Teams</option>
+        {filteredTeams?.map((element) => (
+          <option key={element.teams} value={element.teams}>
+            {element.teams}
+          </option>
+        ))}
+      </select>
+      <select
+        className="filter-select" // Aplica la clase al select
+        onChange={(event) => handleOriginChange(event)}
+        value={selectedOrigin}
+      >
+        <option> Select Origins</option>
+        <option value='All'>All Origins</option>
+        <option value='API'>API</option>
+        <option value='Database'>Database</option>
+      </select>
+      <button className="filter-button" onClick={handleFilterClick}>Apply Filters</button> {/* Aplica la clase al botón */}
+    </fieldset>
+
 
       {/* Renderizar la información de los equipos filtrados aquí */}
       <div>
-        <h2>Teams Information</h2>
         <ul>
           {filteredTeams?.map((team) => (
             <li key={team.id}>
