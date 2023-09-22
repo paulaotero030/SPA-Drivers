@@ -1,0 +1,64 @@
+/* Estilos para el contenedor principal */
+.create-driver-container {
+   
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/851/448/897/coches-viejos-antiguos-wallpaper-preview.jpg'); /* Agrega la ruta de tu imagen de fondo */
+   
+    background-size: cover;
+    background-position: center; /* Centra la imagen de fondo */
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    margin-left: -50%;
+    height: 140vh;
+  }
+  
+  /* Estilos para el formulario */
+  .driver-form {
+    background-color: rgba(92, 92, 92, 0.8); /* Fondo semi-transparente para el formulario */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .form-field {
+    margin-bottom: 10px;
+    width: 100%; /* Haz que los campos de entrada ocupen todo el ancho del formulario */
+    display: flex; /* Utiliza Flexbox para alinear elementos en una fila */
+    flex-direction: column; /* Coloca los elementos en una columna por defecto */
+    align-items: center; /* Centra los elementos horizontalmente */
+    text-align: center; 
+  }
+  
+  /* Estilos para los botones */
+  .submit-button {
+    background-color: #007bff; /* Color de fondo del botón de envío */
+    color: #fff; /* Color del texto del botón de envío */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 120px;
+    cursor: pointer;
+  }
+  .title{
+    color: #fff;
+  }
+  .text1{
+    color: #fff;
+  }
+  .go-back-button {
+    background-color: #ffffff; /* Color de fondo del botón "Go back" */
+    color: #000; /* Color del texto del botón "Go back" */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: -110px;
+top: 475px;
+position: absolute;
+    cursor: pointer;
+  }
+  
+  /* Estilos para los mensajes de error */
+  .form-error {
+    color: #ffffff;
+    font-size: 14px;
+  }
+  

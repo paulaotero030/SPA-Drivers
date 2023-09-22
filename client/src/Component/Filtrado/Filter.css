@@ -29,7 +29,10 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  
+  .filter-button:hover {
+    background-color: #4d4d4d; 
+
+  }
   /* Estilo para la leyenda */
   .filter-legend {
     font-weight: bold;

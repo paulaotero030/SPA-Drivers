@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import LandingPage from './Component/LandingPage/LandingPage';
 import Home from './Component/HomePage/HomePage';
 import Detail from './Component/Detail/Detail';
-import CreateDriver from './Component/CreateDriver';
+import CreateDriver from './Component/CreateDriver/CreateDriver';
 
 function App() {
   return (

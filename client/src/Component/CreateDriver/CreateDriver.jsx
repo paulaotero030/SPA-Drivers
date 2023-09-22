@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { postDrivers } from '../redux/actions/index';
+import { postDrivers } from '../../redux/actions/index';
 import { useNavigate } from 'react-router-dom';
-
+import './CreateDriver.css'
 function error(input) {
   let errors = {};
   if (!input.name) {
@@ -89,43 +89,72 @@ const CreateDriver = () => {
   };
 
   return (
-    <div>
-      <h1>Create Driver</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
+    <div className="create-driver-container">
+      <h1 className='title'>Create Driver</h1>
+      <form onSubmit={handleSubmit} className="driver-form">
+        <div className="form-field">
+          <label className='text1'>Name:</label>
           <input
             type='text'
             value={newDriver.name}
             name='name'
+            placeholder='Add name...'
+
             onChange={handleChange}
           />
           {errors.name && <p className='form-error'>{errors.name}</p>}
         </div>
-        <div>
-          <label>Surname:</label>
+        <div className="form-field">
+          <label className='text1'>Surname:</label>
           <input
             type='text'
             value={newDriver.surname}
             name='surname'
+            placeholder='Add surname...'
+
             onChange={handleChange}
           />
           {errors.surname && <p className='form-error'>{errors.surname}</p>}
         </div>
-        <div>
-          <label>Nationality:</label>
+        <div className="form-field">
+          <label className='text1'>Nationality:</label>
           <input
             type='text'
             value={newDriver.nationality}
             name='nationality'
+            placeholder='Add nationality...'
+
             onChange={handleChange}
           />
           {errors.nationality && (
             <p className='form-error'>{errors.nationality}</p>
           )}
         </div>
-        <div>
-          <label>Date of Birth:</label>
+     
+        <div className="form-field">
+          <label className='text1'>Description:</label>
+          <input
+            value={newDriver.description}
+            name='description'
+            placeholder='Add description...'
+
+            onChange={handleChange}
+          />
+          {errors.description && (
+            <p className='form-error'>{errors.description}</p>
+          )}
+        </div>
+        <div className="form-field">
+          <label className='text1'>Teams:</label>
+          <input
+            type='text'
+            name='team'
+            placeholder='Add team...'
+            onChange={handleTeamChange}
+          />
+        </div>
+        <div className="form-field">
+          <label className='text1'>Date of Birth:</label>
           <input
             type='date'
             value={newDriver.dob}
@@ -134,38 +163,17 @@ const CreateDriver = () => {
           />
           {errors.dob && <p className='form-error'>{errors.dob}</p>}
         </div>
-        <div>
-          <label>Description:</label>
-          <textarea
-            value={newDriver.description}
-            name='description'
-            onChange={handleChange}
-          />
-          {errors.description && (
-            <p className='form-error'>{errors.description}</p>
-          )}
-        </div>
-        <div>
-          <label>Teams:</label>
-          <input
-            type='text'
-            name='team'
-            placeholder='Add team...'
-            onChange={handleTeamChange}
-          />
-        </div>
         {newDriver.teams.map((team, index) => (
           <div key={index}>{team}</div>
         ))}
         <div>
-          <button type='submit'>Create Driver</button>
+          <button type='submit' className="submit-button">Create Driver</button>
         </div>
       </form>
       <Link to='/home'>
-        <button>Go back</button>
+        <button className="go-back-button">Go back</button>
       </Link>
     </div>
   );
 };
-
 export default CreateDriver;
